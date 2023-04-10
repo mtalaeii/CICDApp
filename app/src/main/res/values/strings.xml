@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CICDApp</string>
+    <string name="txtTest">Button clicked</string>
 </resources>

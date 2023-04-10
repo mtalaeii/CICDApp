@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         val myButton = findViewById<Button>(R.id.myButton)
         myButton.setOnClickListener {
             val resultTextView = findViewById<TextView>(R.id.resultTextView)
-            resultTextView.text = "Button clicked"
+            resultTextView.text = getString(R.string.txtTest)
         }
     }
 }
