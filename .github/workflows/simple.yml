@@ -30,7 +30,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.2.0
         with:
           api-level: 30
-          tag: default
+          target: default
           arch: x86
           profile: Nexus 6
       - name: Wait for emulator to finish booting
