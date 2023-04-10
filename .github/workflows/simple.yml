@@ -30,7 +30,8 @@ jobs:
             tag: default
             arch: x86
             profile: Nexus 6
-            - name: Wait for emulator to finish booting
-              run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
-            - name: Run UI tests
-              run: ./gradlew connectedAndroidTest
+
+      - name: Wait for emulator to finish booting
+          run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
+      - name: Run UI tests
+          run: ./gradlew connectedAndroidTest
