@@ -1,57 +1,15 @@
-# Compiled output
-/build/
-/app/build/
-/captures/
-
-# Gradle files
-.gradle/
-/local.properties
-/.idea/
-/.cxx/
-
-# Android Studio files
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/modules.xml
-.idea/vcs.xml
-*.ipr
-*.iws
-
-# Emulator/device-specific files
-*.avd/
-*.kys
-*.key
-*.jks
-*.p12
-
-# Local configuration files
-*.log
-*.cache
-*.properties
-*.prefs
-
-# Crashlytics configuration
-fabric.properties
-
-# Keystore files
-*.keystore
-
-# ProGuard files
-/proguard*/proguard-*.txt
-/proguard*/proguard-*.pro
-/proguard*/proguard-android-optimize.txt
-/proguard*/proguard-rules.pro
-
-# Android Studio and Intellij IDEA
-.idea/
-*.bak
-*.ids
-*.class
-
-# Other
-/.gradle/
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
