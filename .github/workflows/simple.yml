@@ -1,4 +1,4 @@
-name: Run Android Emulator
+name:  Android CI/CD
 
 on:
   push:
