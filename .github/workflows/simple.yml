@@ -1,15 +1,14 @@
 name: Android CI/CD
 
 on:
-  on:
-    # Triggers the workflow on every pull request to master branch
-    push:
-      branches: [ master, mahdi ]
-    pull_request:
-      branches: [ master, mahdi ]
+  # Triggers the workflow on every pull request to master branch
+  push:
+    branches: [ master, mahdi ]
+  pull_request:
+    branches: [ master, mahdi ]
 
-    # Allows you to run this workflow manually from the Actions tab
-    workflow_dispatch:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   jobs:
