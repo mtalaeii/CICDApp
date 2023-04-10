@@ -26,14 +26,11 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
-      - name: Run instrumented tests
-        uses: reactivecircus/android-emulator-runner@v2.2.0
+      - name: run Instrumantation tests
+        uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
+          api-level: 31
           target: default
-          arch: x86
+          arch: x86_64
           profile: Nexus 6
-      - name: Wait for emulator to finish booting
-        run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
-      - name: Run UI tests
-        run: ./gradlew connectedAndroidTest
+          script: ./gradlew connectedCheck
