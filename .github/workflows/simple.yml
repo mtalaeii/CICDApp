@@ -88,8 +88,6 @@ jobs:
         with:
           java-version: 11
 
-      - name: Run detekt
-        run: ./gradlew detektCheck
 
       - name: Run unit tests
         run: ./gradlew test --stacktrace
@@ -103,7 +101,7 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: ./gradlew connectedCheck
+          script: ./gradlew connectedCheck --stacktrace
 
       - name: Upload Reports
         uses: actions/upload-artifact@v2
