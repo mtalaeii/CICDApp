@@ -1,0 +1,61 @@
+name: Android Simple CI/CD
+
+on:
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Load API Token from secrets
+        env:
+          API_TOKEN: ${{ secrets.TOKEN }}
+        run: echo API_TOKEN=\"$API_TOKEN\" > ./local.properties
+
+
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Check and Report
+        run: ./gradlew build
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: build release app
+        run: ./gradlew assembleRelease
+
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        # ID used to access action output
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          # override default build-tools version (29.0.3) -- optional
+          BUILD_TOOLS_VERSION: "30.0.2"
+
+      - name: Upload to telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.CHAT_ID }}
+          token: ${{ secrets.BOT_TOKEN }}
+          document: ${{ github.workspace }}/app/release/app-release-signed.apk
