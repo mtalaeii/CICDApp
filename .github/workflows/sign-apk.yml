@@ -58,4 +58,4 @@ jobs:
         with:
           to: ${{ secrets.CHAT_ID }}
           token: ${{ secrets.BOT_TOKEN }}
-          document: ${{ github.workspace }}/app/release/app-release-signed.apk
+          document: ${{steps.sign_app.outputs.signedReleaseFile}}
