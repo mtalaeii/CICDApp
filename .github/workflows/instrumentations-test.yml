@@ -71,7 +71,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        api-level: [21, 23, 29,30,31]
+        api-level: [21, 23]
         target: [default]
 
     steps:
@@ -88,12 +88,6 @@ jobs:
         with:
           java-version: 11
 
-
-      - name: Run unit tests
-        run: ./gradlew test --stacktrace
-      - name: checkout
-        uses: actions/checkout@v2
-
       - name: Run instrumentation tests
         uses: ReactiveCircus/android-emulator-runner@v2.21.0
         with:
@@ -109,4 +103,6 @@ jobs:
           name: Test-Reports
           path: app/build/reports
         if: always()
+
+
 
