@@ -94,8 +94,6 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew test --stacktrace
-      - name: checkout
-        uses: actions/checkout@v3
 
       - name: Upload Reports
         uses: actions/upload-artifact@v3
