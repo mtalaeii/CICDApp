@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: lint-results-debug
-          path: ${{ github.workspace }}/app/build/outputs/logs
+          path: ${{ github.workspace }}/app/build/reports
 
 
       - name: Setup Android SDK
@@ -98,10 +98,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Upload Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: Test-Reports
-          path: ${{ github.workspace }}/app/build/outputs/logs
-        if: always()
+          uses: actions/upload-artifact@v3
+          with:
+            name: Test-Reports
+            path: ${{ github.workspace }}/app/build/reports/tests
+          if: always()
       
 
