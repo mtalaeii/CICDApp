@@ -101,11 +101,11 @@ jobs:
           script: ./gradlew connectedCheck --stacktrace
 
       - name: Upload Reports
-          uses: actions/upload-artifact@v3
-          with:
-            name: Test-Reports
-            path: ${{ github.workspace }}/app/build/reports/androidTests
-          if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test-Reports
+          path: ${{ github.workspace }}/app/build/reports/androidTests
+        if: always()
 
 
 
