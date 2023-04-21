@@ -101,7 +101,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Test-Reports
-          path: ${{ github.workspace }}/app/build/reports/androidTests
+          path: ${{ github.workspace }}/app/build/reports/tests
         if: always()
       
 
